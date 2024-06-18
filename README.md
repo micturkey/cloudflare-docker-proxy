@@ -36,5 +36,19 @@
      "k8s-gcr.libcuda.so": "https://k8s.gcr.io",
      "ghcr.libcuda.so": "https://ghcr.io",
    };
+3. use wildcard custom domain: support proxy multiple registries route by host with wildcard domains to protect privacy.
+   - host your domain DNS on cloudflare
+   - add `A` record of xxx.example.com to `192.0.2.1`
+   - deploy this project to cloudflare workers
+   - add `xxx.example.com/*` to HTTP routes of workers
+   - add more records and modify the config as you need
+   ```javascript
+   const routes = {
+     "docker.*": "https://registry-1.docker.io",
+     "quay.*": "https://quay.io",
+     "gcr.*": "https://k8s.gcr.io",
+     "k8s-gcr.*": "https://k8s.gcr.io",
+     "ghcr.*": "https://ghcr.io",
+   };
    ```
 
