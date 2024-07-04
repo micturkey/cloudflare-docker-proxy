@@ -14,6 +14,7 @@ const routes = {
   "k8s.*": "https://registry.k8s.io",
   "ghcr.*": "https://ghcr.io",
   "cloudsmith.*": "https://docker.cloudsmith.io",
+  "registry-k8s.*": "https://registry.k8s.io",
 
   // staging
   "docker-staging.*": dockerHub,
